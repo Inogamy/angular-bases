@@ -15,10 +15,12 @@ export class ListComponent {
   }];
 
   @Output()
-  public onDeleted: EventEmitter<number> = new EventEmitter()
+  public onDeleted: EventEmitter<string> = new EventEmitter()
 
-  onDeletedCharacter(index: number): void {
-    this.onDeleted.emit(index)
+  onDeletedCharacter(id?: string): void {
+    if ( !id ) return;
+    console.log(id);
+    this.onDeleted.emit(id)
   }
 
 }
